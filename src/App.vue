@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>ToDo Management</h1>
+    <h1>todos <font-awesome-icon icon="coffee" /></h1>
     <hr>
     <router-view/>
   </div>

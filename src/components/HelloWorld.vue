@@ -4,7 +4,6 @@
       <button class="button is-text" @click="addTodo()">Add Task</button>
       <button class="button is-text" @click="removeTodo()">Delete Finished Task</button>
       <p>input: <input type="text" v-model="newTodo"></p>
-      <p>task: {{ newTodo }}</p>
     </form>
   <div class="task-list">
     <label class="task-list__item label" v-for="todo in todos" v-bind:class="{ 'task-list__item--checked': todo.done }">
