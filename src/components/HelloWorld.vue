@@ -24,12 +24,7 @@ export default {
   data() {
     return {
       msg: "Welcome to Your Vue.js App",
-      todos: [
-        { text: "vue-router", done: false, editing: false },
-        { text: "vuex", done: false, editing: false },
-        { text: "vue-loader", done: false, editing: false },
-        { text: "awesome-vue", done: true, editing: false }
-      ],
+      todos: [],
       newTodo: ""
     };
   },
@@ -44,13 +39,27 @@ export default {
           done: false
         });
         this.newTodo = "";
+        this.saveTodo();
       }
     },
     removeTodo: function(event) {
       for (let i = this.todos.length - 1; i >= 0; i--) {
         if (this.todos[i].done) this.todos.splice(i, 1);
       }
+      this.saveTodo();
+    },
+    saveTodo: function() {
+      localStorage.setItem("todos", JSON.stringify(this.todos));
+    },
+    loadTodo: function() {
+      this.todos = JSON.parse(localStorage.getItem("todos"));
+      if (!this.todos) {
+        this.todos = [];
+      }
     }
+  },
+  mounted: function() {
+    this.loadTodo();
   }
 };
 </script>
