@@ -6,14 +6,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    todoList:[
-      { id: 1, val: "みかん", checked: false },
-      { id: 2, val: "りんご", checked: false }
-    ],  
+    todoList:[],
+    user: "David"
   },
   mutations: {
     setTodoList(state, list){
       state.todoList = list
+    },
+    setName(state, name){
+      state.user = name
     }
   },
   actions: {
